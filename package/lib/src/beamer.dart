@@ -88,9 +88,12 @@ class BeamerState extends State<Beamer> {
                 delegate: routerDelegate,
               )
             : null);
-    return Router(
-      routerDelegate: routerDelegate,
-      backButtonDispatcher: backButtonDispatcher?..takePriority(),
+    return HeroControllerScope(
+        controller: MaterialApp.createMaterialHeroController(),
+        child: Router(
+                routerDelegate: routerDelegate,
+                backButtonDispatcher: backButtonDispatcher?..takePriority(),
+        ),
     );
   }
 
